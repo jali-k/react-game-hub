@@ -32,6 +32,7 @@ function App() {
                 setSelectedGenre(genre);
                 console.log(genre);
               }}
+              selectedGenre={selectedGenre}
             ></GenreList>
           </GridItem>
         </Show>
