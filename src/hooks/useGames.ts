@@ -5,6 +5,7 @@ import apiClient from "../services/apiClient";
 import { CanceledError } from "axios";
 import useData from "./useData";
 import { Genre } from "./useGenres";
+import { GameQuery } from "../App";
 
 export interface Platform {
   id: number,
@@ -26,6 +27,6 @@ interface FetchGameResponse {
 }
 
 
-const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useData<Game>("/games", {params: {genres: selectedGenre?.id, platforms: selectedPlatform?.id}}, [selectedGenre?.id, selectedPlatform?.id]) // Pass the parameter genre which accepts the rawg api. It take as AxiosRequestConfigObject there
-
+const useGames = (gameQuery: GameQuery) => useData<Game>("/games", {params: {genres: gameQuery.genre?.id, platforms: gameQuery.platforrm?.id, ordering: gameQuery.ordering}}, [gameQuery]) // Pass the parameter genre which accepts the rawg api. It take as AxiosRequestConfigObject there
+// Refactoring done after rafactorring commit
 export default useGames;
