@@ -26,6 +26,6 @@ interface FetchGameResponse {
 }
 
 
-const useGames = (selectedGenre: Genre | null) => useData<Game>("/games", {params: {genres: selectedGenre?.id}}, [selectedGenre?.id]) // Pass the parameter genre which accepts the rawg api. It take as AxiosRequestConfigObject there
+const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useData<Game>("/games", {params: {genres: selectedGenre?.id, platforms: selectedPlatform?.id}}, [selectedGenre?.id, selectedPlatform?.id]) // Pass the parameter genre which accepts the rawg api. It take as AxiosRequestConfigObject there
 
 export default useGames;
