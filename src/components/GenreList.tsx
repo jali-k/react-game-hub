@@ -32,8 +32,8 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
             <HStack>
               <Image
                 //   overflow={"hidden"}
-                width={"35px"}
-                height={"35px"}
+                boxSize={"35px"}
+                objectFit={"cover"}
                 borderRadius={3}
                 src={eachGenre.image_background}
               ></Image>
