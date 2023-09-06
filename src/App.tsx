@@ -38,7 +38,7 @@ function App() {
           lg: "200px 1fr",
         }}
       >
-        <GridItem area={"nav"}>
+        <GridItem area={"nav"} paddingY={2} marginBottom={2}>
           <NavBar
             onSearch={(searchText) =>
               setGameQuery({ ...gameQuery, searchText: searchText })
@@ -60,7 +60,7 @@ function App() {
         <GridItem area={"main"}>
           <Box paddingLeft={3}>
             <GameHeading gameQuery={gameQuery}></GameHeading>
-            <HStack spacing={3}>
+            <HStack spacing={3} marginY={5}>
               <PlatformSelector
                 onPlatformSelect={(selctedPlatform) => {
                   setGameQuery({ ...gameQuery, platforrm: selctedPlatform });
