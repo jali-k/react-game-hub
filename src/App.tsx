@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/navbar";
 import GamesGrid from "./components/GamesGrid";
@@ -8,6 +8,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatform";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre;
@@ -55,21 +56,26 @@ function App() {
             ></GenreList>
           </GridItem>
         </Show>
+
         <GridItem area={"main"}>
-          <HStack paddingLeft={3} spacing={3}>
-            <PlatformSelector
-              onPlatformSelect={(selctedPlatform) => {
-                setGameQuery({ ...gameQuery, platforrm: selctedPlatform });
-              }}
-              selectedPlatform={gameQuery.platforrm}
-            ></PlatformSelector>
-            <SortSelector
-              onOrderClick={(ordering) => {
-                setGameQuery({ ...gameQuery, ordering: ordering });
-              }}
-              selectedOrdering={gameQuery.ordering}
-            />
-          </HStack>
+          <Box paddingLeft={3}>
+            <GameHeading gameQuery={gameQuery}></GameHeading>
+            <HStack spacing={3}>
+              <PlatformSelector
+                onPlatformSelect={(selctedPlatform) => {
+                  setGameQuery({ ...gameQuery, platforrm: selctedPlatform });
+                }}
+                selectedPlatform={gameQuery.platforrm}
+              ></PlatformSelector>
+              <SortSelector
+                onOrderClick={(ordering) => {
+                  setGameQuery({ ...gameQuery, ordering: ordering });
+                }}
+                selectedOrdering={gameQuery.ordering}
+              />
+            </HStack>
+          </Box>
+
           <GamesGrid
             gameQuery={gameQuery}
             // selectedPlatform={gameQuery.platforrm}
