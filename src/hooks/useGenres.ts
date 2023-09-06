@@ -1,6 +1,5 @@
 
 import genres from "../data/genres";
-import useData from "./useData";
 
 
 export interface Genre {

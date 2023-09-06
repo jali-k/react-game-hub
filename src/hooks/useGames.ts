@@ -1,10 +1,6 @@
 // This hook is responsible for fetching the games from the API. The components(tsx s) are responsible to show a markup.
 
-import { useEffect, useState } from "react";
-import apiClient from "../services/apiClient";
-import { CanceledError } from "axios";
 import useData from "./useData";
-import { Genre } from "./useGenres";
 import { GameQuery } from "../App";
 
 export interface Platform {
@@ -22,10 +18,10 @@ export interface Game {
   rating_top: number; 
 }
 
-interface FetchGameResponse {
-  count: number;
-  results: Game[];
-}
+// interface FetchGameResponse {
+//   count: number;
+//   results: Game[];
+// }
 
 
 const useGames = (gameQuery: GameQuery) => useData<Game>("/games", {params: 

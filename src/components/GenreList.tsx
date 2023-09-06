@@ -2,12 +2,10 @@ import {
   Button,
   HStack,
   Heading,
-  Hide,
   Image,
   List,
   ListItem,
   Spinner,
-  Text,
 } from "@chakra-ui/react";
 import useGenre, { Genre } from "../hooks/useGenres";
 
