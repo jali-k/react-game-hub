@@ -27,6 +27,13 @@ interface FetchGameResponse {
 }
 
 
-const useGames = (gameQuery: GameQuery) => useData<Game>("/games", {params: {genres: gameQuery.genre?.id, platforms: gameQuery.platforrm?.id, ordering: gameQuery.ordering}}, [gameQuery]) // Pass the parameter genre which accepts the rawg api. It take as AxiosRequestConfigObject there
+const useGames = (gameQuery: GameQuery) => useData<Game>("/games", {params: 
+  {
+    genres: gameQuery.genre?.id, 
+    platforms: gameQuery.platforrm?.id, 
+    ordering: gameQuery.ordering,
+    search: gameQuery.searchText,
+  }
+}, [gameQuery]) // Pass the parameter genre which accepts the rawg api. It take as AxiosRequestConfigObject there
 // Refactoring done after rafactorring commit
 export default useGames;
